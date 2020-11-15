@@ -58,16 +58,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "common"
-version = "0.1.0"
-dependencies = [
- "os_units",
- "uefi",
- "vek",
- "x86_64",
-]
-
-[[package]]
 name = "conquer-once"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -269,7 +259,6 @@ name = "ramen"
 version = "0.3.0"
 dependencies = [
  "bitfield",
- "common",
  "conquer-once",
  "crossbeam-queue",
  "futures-intrusive",
