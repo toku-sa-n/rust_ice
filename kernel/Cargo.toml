@@ -1,0 +1,44 @@
+[package]
+name = "ramen"
+version = "0.3.0"
+authors = ["toku-sa-n <tokusan441@gmail.com>"]
+edition = "2018"
+license = "GPL-3.0-or-later"
+
+[features]
+default = []
+qemu_test = []
+
+[profile.dev]
+opt-level = 0
+
+# I don't know why lto = false causes some problems like not printing correct words on the screen.
+lto = true
+
+[profile.release]
+opt-level = 3
+lto = true
+
+[lib]
+name = "ramen_os"
+crate-type = ["staticlib"]
+test = false
+bench = false
+
+[dependencies]
+common = { path = "../common" }
+conquer-once = { version = "0.2.1", default-features = false }
+spinning_top = { version = "0.2.2", features = ["nightly"] }
+qemu-exit = "1.0.0"
+x86_64 = "0.12.0"
+linked_list_allocator = "0.8.0"
+log = "0.4.11"
+vek = { version = "0.12.0", default-features = false, features = ["libm"] }
+rgb = "0.8.25"
+uefi = "0.6.0"
+crossbeam-queue = { version = "0.3.0", default-features = false, features = ["alloc"] }
+futures-util = { version = "0.3.4", default-features = false, features = ["alloc"] }
+screen_layer = "0.1.0"
+os_units = "0.2.0"
+bitfield = "0.13.2"
+futures-intrusive = { version = "0.3.1", default-features = false}
